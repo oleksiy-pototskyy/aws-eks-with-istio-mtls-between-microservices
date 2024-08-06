@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.app2.name }}
+  labels:
+    app: {{ .Values.app2.name }}
+spec:
+  replicas: {{ .Values.app2.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Values.app2.name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.app2.name }}
+    spec:
+      containers:
+        - name: {{ .Values.app2.name }}
+          image: "{{ .Values.app2.image }}:{{ .Values.app2.imageTag }}"
+          ports:
+            - containerPort: 80
+          args:
+            - "-text='Hello from App2'"

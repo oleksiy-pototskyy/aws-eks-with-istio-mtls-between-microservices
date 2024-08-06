@@ -1,0 +1,15 @@
+app1:
+  name: app1
+  image: hashicorp/http-echo
+  imageTag: "1.0"
+  replicaCount: 2
+  service:
+    port: 80
+
+app2:
+  name: app2
+  image: hashicorp/http-echo
+  imageTag: "1.0"
+  replicaCount: 2
+  service:
+    port: 80
